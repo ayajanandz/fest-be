@@ -12,6 +12,7 @@ const admin = async (req) => {
   let collection = mongoDB.collection(category);
   let data = await collection.find({}).toArray();
   console.log(data);
+  
   return data;
   
 //   let dbResponse = await collection.findOne({ Email: email });

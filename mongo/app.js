@@ -4,6 +4,8 @@ const { login } = require("./login");
 const { amura } = require("./amura");
 const { amuraPayee } = require("./amuraPayee");
 const { admin } = require('./admin');
+const { generateOtp } = require ('./otpgeneration');
+const { showotp } = require('./showotp');
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -40,6 +42,15 @@ app.post("/register", async(req,res) => {
  app.get("/admin", async(req,res) => {
   let responseData = await admin(req);
    res.send(responseData);
+ })
+
+ app.post("/verified", async(req,res) =>{
+  let verification = await generateOtp(req);
+  res.send(verification)
+ })
+
+ app.post("/otp", async (req,res) =>{
+     await showotp(req,res);
  })
 
   app.listen(port, () => {

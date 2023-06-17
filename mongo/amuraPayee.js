@@ -7,9 +7,11 @@ const { connectDB } = require("./connect");
 
 const amuraPayee = async (req, res) => {
   const { email, name, transactionId } = req.body;
-  console.log(name , email, transactionId);
+  let status = "false";
+  // console.log(name , email, transactionId);
   let mongoDB = await connectDB();
   let collection = mongoDB.collection("amuraPayee");
+  // let timestamp= new Date.now().toString();
   let dbResponse = await collection.findOne({ Email: email });
   if(!dbResponse){
     try{
@@ -17,7 +19,11 @@ const amuraPayee = async (req, res) => {
         Name: name,
         Email:email,
         TransactionId:transactionId,
+        Verified:status,
+        OTPgenerated:"false",
+        // Time:timestamp,
     })
+    console.log(name,"entered the transaction id ->",transactionId);
     res.send({body:true,status:200})
   } catch(err){
     console.log(err);
@@ -27,7 +33,7 @@ const amuraPayee = async (req, res) => {
 
 }else {
     console.log("User record already exists..");
-    res.send({body:false, status:400})
+    res.send({body:dbResponse, status:400})
 }
 }
 
