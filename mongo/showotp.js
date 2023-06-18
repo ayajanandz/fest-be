@@ -13,8 +13,8 @@ const showotp = async (req,res) => {
   let collection = mongoDB.collection("amuraPayee");
   let dbResponse = await collection.findOne({Email:email})
   console.log(dbResponse);
-  if(dbResponse.OTPgenerated==null){
-    res.send({ body: false});
+  if(!dbResponse){
+    res.send({ body: {}});
   }else {
     res.send({body: dbResponse, status:200});
   }
