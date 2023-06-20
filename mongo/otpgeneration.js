@@ -18,7 +18,9 @@ const generateOtp = async (req, res) => {
       collection.updateOne(
         { _id: dbResponse._id },
         {
-          $set: { OTPgenerated: OTP },
+          $set: { OTPgenerated: OTP,
+          Verified:"true" },
+          // $set: { Verified: "true" }
         }
       );
       console.log("Otp generated:");
@@ -29,7 +31,7 @@ const generateOtp = async (req, res) => {
   //     "success":true
   //    })
 
-  return OTP;
+  return { body: OTP};
 };
 
 module.exports = { generateOtp };
