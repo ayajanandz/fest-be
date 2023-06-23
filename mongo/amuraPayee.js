@@ -24,7 +24,7 @@ const amuraPayee = async (req, res) => {
         // Time:timestamp,
     })
     console.log(name,"entered the transaction id ->",transactionId);
-    res.send({body:true,status:200})
+    res.send({body:"Data Submitted Successfuly !",status:200})
   } catch(err){
     console.log(err);
   }
