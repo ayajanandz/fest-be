@@ -9,6 +9,7 @@ const { showotp } = require('./showotp');
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+require('dotenv').config({path:__dirname+'/./../../.env'})
 
 mongoose.connection.on("connected", () => {
   console.log("Connected to MongoDB using MongooseJS");
@@ -17,7 +18,7 @@ mongoose.connection.on("connected", () => {
 const app = express();
 
 app.use(cors());
-const port = 9000;
+const port = process.env.PORT
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
