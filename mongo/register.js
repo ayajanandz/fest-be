@@ -24,6 +24,7 @@ const register = async (req, res) => {
       Password:password
     })
     console.log("inserted new user details")
+    res.send({ body: {}, status: 200 });
   } catch(err){
     console.log(err);
   }

@@ -20,7 +20,7 @@ const amuraPayee = async (req, res) => {
         Email:email,
         TransactionId:transactionId,
         Verified:status,
-        OTPgenerated:"false",
+        OTPgenerated:false,
         // Time:timestamp,
     })
     console.log(name,"entered the transaction id ->",transactionId);
