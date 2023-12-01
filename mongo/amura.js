@@ -1,6 +1,6 @@
 "use strict";
 
-const mongoose = require("mongoose");
+
 const { connectDB } = require("./connect");
 
 const amura = async (req, res) => {

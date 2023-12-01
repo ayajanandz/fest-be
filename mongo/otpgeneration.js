@@ -20,16 +20,14 @@ const generateOtp = async (req, res) => {
         {
           $set: { OTPgenerated: OTP,
           Verified:"true" },
-          // $set: { Verified: "true" }
+          
         }
       );
       console.log("Otp generated:");
     }
   
   }
-  //    res.send({
-  //     "success":true
-  //    })
+  
 
   return { body: OTP};
 };

@@ -1,11 +1,11 @@
 'use strict';
-// require('dotenv').config({path:__dirname+'/./../../.env'})
+
 const dotenv = require('dotenv')
 dotenv.config();
 const { MongoClient } = require("mongodb");
 
 const uri = process.env.MONGO_URI
-// console.log(MONGO_URI)
+
 const databaseName ='testing2'
 const client = new MongoClient(uri);
 
