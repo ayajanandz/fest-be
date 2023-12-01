@@ -13,16 +13,16 @@ const login = async (req, res) => {
  
   let dbResponse = await collection.findOne({ Email: email });
 
-  // console.log(Response);
+
+  
   if (dbResponse) {
     if (password === dbResponse.Password) {
-      //  console.log(Response);
+      const { Password, ...userWithoutPassword } = dbResponse;
       
-      // console.log("This user has liked movies bearing id: ", likedResponse.Movieid);
-      
-      
-       console.log(dbResponse);
-      res.send({ body: dbResponse, status: 200,  });
+      // Returning everything to the frontend except the password from the databse
+
+      console.log(userWithoutPassword);
+      res.send({ body: userWithoutPassword, status: 200,  });
     } else {
       res.send({ body: {}, status: 200 });
     }

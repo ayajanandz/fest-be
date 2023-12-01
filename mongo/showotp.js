@@ -1,5 +1,5 @@
 'use strict';
-const mongoose = require("mongoose");
+
 
 const { connectDB } = require("./connect");
 
@@ -18,13 +18,6 @@ const showotp = async (req,res) => {
   }else {
     res.send({body: dbResponse, status:200});
   }
-//   if(!data){
-//     return null;
-//   }else {
-//   return data.body;
-//   }
-  
-//   let dbResponse = await collection.findOne({ Email: email });
 
 
 }

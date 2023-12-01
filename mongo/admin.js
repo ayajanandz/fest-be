@@ -1,5 +1,5 @@
 'use strict';
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 
 const { connectDB } = require("./connect");
 
@@ -15,7 +15,7 @@ const admin = async (req) => {
   
   return data;
   
-//   let dbResponse = await collection.findOne({ Email: email });
+
 
 
 }
